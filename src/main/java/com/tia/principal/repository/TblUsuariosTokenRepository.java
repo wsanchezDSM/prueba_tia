@@ -1,6 +1,7 @@
 package com.tia.principal.repository;
 
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -14,6 +15,9 @@ public interface TblUsuariosTokenRepository extends JpaRepository<TblUsuariosTok
 	
 	Optional<TblUsuariosToken> findFirstByTblUsuarios_IdAndEnUsoFalseAndTiempoExpiracionAfter(Long idUsuario,LocalDateTime horaActual);
 	
+	Optional<TblUsuariosToken> findLastByTblUsuarios_IdAndEnUsoFalseAndTiempoExpiracionAfter(Long idUsuario,LocalDateTime horaActual);
+	
     Optional<TblUsuariosToken> findByTblUsuarios_IdAndTkAndAndTiempoExpiracionAfterAndEnUsoFalse(Long idUsuario, String token, LocalDateTime horaActual);
 
+    List<TblUsuariosToken> findAllByTblUsuarios_Email(String cliente);
 }

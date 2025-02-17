@@ -10,7 +10,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Builder
 public class RegistroResponse {
-	private String tokenVirtual;
+	private String token;
 	private Long tiempoRestante;
 
 }
